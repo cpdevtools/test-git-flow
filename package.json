@@ -5,7 +5,8 @@
   "description": "Test repository for git-flow workflow validation",
   "type": "module",
   "scripts": {
-    "test": "echo \"Test placeholder\""
+    "test": "echo \"Test placeholder\"",
+    "build": "echo \"Build placeholder\""
   },
   "keywords": [],
   "author": "CPDevTools",
