@@ -1,0 +1,13 @@
+{
+  "name": "@cpdevtools/test-git-flow",
+  "version": "0.0.0-DEFAULT",
+  "private": true,
+  "description": "Test repository for git-flow workflow validation",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Test placeholder\""
+  },
+  "keywords": [],
+  "author": "CPDevTools",
+  "license": "MIT"
+}
