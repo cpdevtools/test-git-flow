@@ -27,17 +27,18 @@ Versions are resolved from placeholders defined in [.github/versions.yml](.githu
 
 ### Version Behavior by Branch Type
 
-**Mainline Branches** (`main`, `v*`):
+**Mainline Branches** (branches without `/`):
 - Version: `1.0.0` (no pre-release suffix)
-- Example: `main` → `1.0.0`
-- Example: `v1` → `1.0.0`
+- Examples: `main` → `1.0.0`, `v1` → `1.0.0`, `production` → `1.0.0`
+- Any branch name without a forward slash is treated as mainline
 
-**Development Branches** (`feature/*`, `bugfix/*`, etc.):
+**Development Branches** (branches with `/`):
 - Version: `1.0.0-{sanitized-branch-name}` (pre-release)
-- Example: `feature/test-feature` → `1.0.0-feature.test-feature`
-- Example: `bugfix/test-fix` → `1.0.0-bugfix.test-fix`
+- Examples: `feature/test-feature` → `1.0.0-feature.test-feature`
+- Examples: `bugfix/test-fix` → `1.0.0-bugfix.test-fix`
+- The `/` is replaced with `.` in the version suffix
 
-Branch names with `/` are sanitized by replacing slashes with dots.
+**The Rule:** If your branch name contains a forward slash, it's a development branch and gets a pre-release version. Otherwise, it's a mainline branch.
 
 ## Example PRs
 
