@@ -14,3 +14,4 @@ This repository tests the git-flow workflow automation.
 See [.github/versions.json](.github/versions.json) for version placeholder mappings.
 # Test
 # Version 1
+# Bugfix Test
