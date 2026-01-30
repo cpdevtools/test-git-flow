@@ -1,13 +1,14 @@
-name: Create Release PR
+name: Build, Pack & Publish Release
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
-      - main
+      - 'release/**'
 
 jobs:
-  create-release:
-    uses: cpdevtools/git-flow/.github/workflows/create-release-pr.yml@main
+  build-pack-publish:
+    if: github.event.pull_request.merged == true
+    uses: cpdevtools/git-flow/.github/workflows/build-pack-publish.yml@main
     with:
-      branch: ${{ github.ref_name }}
-      versions-file: .github/versions.json
+      pr-number: ${{ github.event.pull_request.number }}

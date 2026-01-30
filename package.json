@@ -4,11 +4,20 @@
   "private": true,
   "description": "Test repository for git-flow workflow validation",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "test": "echo \"Test placeholder\"",
-    "build": "echo \"Build placeholder\""
+    "build": "pnpm -r run build"
   },
   "keywords": [],
   "author": "CPDevTools",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@cpdevtools/git-flow": "link:../git-flow/packages/git-flow",
+    "@cpdevtools/ts-dev-utilities": "link:../ts-dev-utilities",
+    "typescript": "^5.7.3",
+    "tsx": "^4.19.2"
+  }
 }
+

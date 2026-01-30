@@ -1,0 +1,8 @@
+project: "@cpdevtools/test-package-b"
+artifacts:
+  - type: npm
+    name: "@cpdevtools/test-package-b"
+    path: cpdevtools-test-package-b-1.0.0.tgz
+    registries:
+      - npm
+      - github

@@ -1,0 +1,16 @@
+{
+  "name": "@cpdevtools/test-package-b",
+  "version": "0.0.0-DEFAULT",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "echo 'Building package-b...' && mkdir -p dist && echo 'export const name = \"package-b\";' > dist/index.js",
+    "github.actions.build": "npm run build",
+    "github.actions.pack": "cpdt-gitflow pack"
+  },
+  "dependencies": {
+    "@cpdevtools/test-package-a": "workspace:*"
+  },
+  "author": "CPDevTools",
+  "license": "MIT"
+}
