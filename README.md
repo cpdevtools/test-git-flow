@@ -75,6 +75,27 @@ jobs:
 4. Check GitHub Actions to see the workflow run
 5. View the created PR for version metadata
 
+## CLI Tools
+
+This test project uses the `cpdt-gitflow` CLI for build and pack operations:
+
+```json
+{
+  "scripts": {
+    "github.actions.build": "npm run build",
+    "github.actions.pack": "cpdt-gitflow pack"
+  }
+}
+```
+
+The CLI automatically:
+- Detects project type (NPM/NuGet)
+- Creates distribution artifacts
+- Generates artifact descriptors
+- Supports configuration hooks via `cpdevtools.config.ts`
+
+See [git-flow CLI documentation](https://github.com/cpdevtools/git-flow/blob/main/packages/git-flow/CLI-TOOLS.md) for details.
+
 ## Related Repositories
 
 - [cpdevtools/git-flow](https://github.com/cpdevtools/git-flow) - Main workflow and actions

@@ -7,7 +7,7 @@
   "scripts": {
     "build": "echo 'Building package-a...' && mkdir -p dist && echo 'export const name = \"package-a\";' > dist/index.js",
     "github.actions.build": "npm run build",
-    "github.actions.pack": "cpdevtools-pack"
+    "github.actions.pack": "cpdt-gitflow pack"
   },
   "author": "CPDevTools",
   "license": "MIT"
