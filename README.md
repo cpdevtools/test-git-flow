@@ -1,13 +1,29 @@
 # Test Git Flow
 
-Example project demonstrating the git-flow workflow automation.
+Example project demonstrating the complete git-flow workflow automation system.
 
-## How It Works
+## Complete Workflow
 
-1. **Push to any branch** → Workflow triggers
-2. **Release PR created** with version metadata
-3. **Phase 2 (Build & Pack)** runs when PR is merged
-4. **Phase 3 (Publish)** publishes to registries
+### Phase 1: Version Resolution & Release PR Creation
+1. **Push to any branch** (except `release/**`) → Triggers [create-release-pr.yml](.github/workflows/create-release-pr.yml)
+2. **Release PR created** automatically with:
+   - Version metadata resolved from `.github/versions.yml`
+   - PR description with YAML configuration
+   - Target: `release/{branch-name}` branch
+
+### Phase 2: Build & Pack
+When the release PR is merged:
+1. **Builds** all packages in dependency order
+2. **Packs** artifacts (npm tarballs)
+3. **Uploads** to GitHub draft releases
+4. **Rewrites workspace dependencies** (workspace:* → actual versions)
+
+### Phase 3: Publish & Release
+After successful build & pack:
+1. **Publishes** artifacts to registries (GitHub Packages NPM)
+2. **Verifies** publication
+3. **Finalizes** GitHub releases (draft → published)
+4. **Creates git tags** (package-a/v1.0.0, package-b/v1.0.0)
 
 ## Version Resolution
 
@@ -15,27 +31,40 @@ Versions use `0.0.0-DEFAULT` placeholder, resolved from `.github/versions.yml`:
 
 ```yaml
 "0.0.0-DEFAULT": "1.0.0"
+"0.0.0-BETA": "1.0.0-beta.0"
 ```
 
 ### Branch Types
 
 **Mainline** (no `/`): `main` → `1.0.0`
-**Development** (with `/`): `feature/foo` → `1.0.0-feature.foo`
+**Development** (with `/`): `feature/foo` → `1.0.0-feature.foo.{run-number}`
 
 ## Packages
 
-- **package-a**: Base package
-- **package-b**: Depends on package-a (demonstrates workspace dependencies)
+- **package-a**: Base package (published to GitHub Packages)
+- **package-b**: Depends on package-a (demonstrates workspace dependency rewriting)
 
-## Workflow Configuration
+## Registry Configuration
 
-See [.github/workflows/release.yml](.github/workflows/release.yml):
+See [.github/registries.yml](.github/registries.yml):
 
+```yaml
+registries:
+  github-npm:
+    type: npm
+    url: https://npm.pkg.github.com
+    auth: GITHUB_TOKEN
+    scope: "@cpdevtools"
+```
+
+## Workflows
+
+### [Create Release PR](.github/workflows/create-release-pr.yml)
 ```yaml
 on:
   push:
     branches-ignore:
-      - 'release/**'  # Runs on all branches except release branches
+      - 'release/**'
 
 jobs:
   create-release:
@@ -45,9 +74,30 @@ jobs:
       versions-file: .github/versions.yml
 ```
 
-## Testing Locally
+### [Build, Pack & Publish](.github/workflows/release.yml)
+```yaml
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - 'release/**'
 
-1. Create a branch: `git checkout -b feature/my-feature`
+jobs:
+  build-pack-publish:
+    if: github.event.pull_request.merged == true
+    uses: cpdevtools/git-flow/.github/workflows/build-pack-publish.yml@main
+    with:
+      pr-number: ${{ github.event.pull_request.number }}
+```
+
+## Testing the Flow
+
+1. Create a feature branch: `git checkout -b feature/my-test`
+2. Make changes and commit
+3. Push: `git push origin feature/my-test`
+4. Workflow creates release PR automatically
+5. Review and merge the release PR
+6. Build, pack, and publish workflow runs automatically
 2. Make changes and commit
 3. Push: `git push -u origin feature/my-feature`
 4. Check GitHub Actions to see the workflow run
