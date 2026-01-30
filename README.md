@@ -1,53 +1,31 @@
 # Test Git Flow
 
-This repository demonstrates and validates the git-flow workflow automation from [cpdevtools/git-flow](https://github.com/cpdevtools/git-flow).
-
-## Overview
-
-The git-flow system automatically creates release PRs with version metadata when you push to any branch (except `release/**` branches).
+Example project demonstrating the git-flow workflow automation.
 
 ## How It Works
 
-1. **Push to any branch** (main, v1, feature/*, bugfix/*, etc.)
-2. **Workflow triggers** automatically via GitHub Actions
-3. **Release branch created** at `release/{branch-name}`
-4. **Draft PR opened** merging `{branch-name}` → `release/{branch-name}`
-5. **PR body contains metadata**:
-   - Resolved version numbers
-   - Build metadata (run number, SHA, timestamp)
-   - Project information
+1. **Push to any branch** → Workflow triggers
+2. **Release PR created** with version metadata
+3. **Phase 2 (Build & Pack)** runs when PR is merged
+4. **Phase 3 (Publish)** publishes to registries
 
 ## Version Resolution
 
-Versions are resolved from placeholders defined in [.github/versions.yml](.github/versions.yml):
+Versions use `0.0.0-DEFAULT` placeholder, resolved from `.github/versions.yml`:
 
 ```yaml
 "0.0.0-DEFAULT": "1.0.0"
 ```
 
-### Version Behavior by Branch Type
+### Branch Types
 
-**Mainline Branches** (branches without `/`):
-- Version: `1.0.0` (no pre-release suffix)
-- Examples: `main` → `1.0.0`, `v1` → `1.0.0`, `production` → `1.0.0`
-- Any branch name without a forward slash is treated as mainline
+**Mainline** (no `/`): `main` → `1.0.0`
+**Development** (with `/`): `feature/foo` → `1.0.0-feature.foo`
 
-**Development Branches** (branches with `/`):
-- Version: `1.0.0-{sanitized-branch-name}` (pre-release)
-- Examples: `feature/test-feature` → `1.0.0-feature.test-feature`
-- Examples: `bugfix/test-fix` → `1.0.0-bugfix.test-fix`
-- The `/` is replaced with `.` in the version suffix
+## Packages
 
-**The Rule:** If your branch name contains a forward slash, it's a development branch and gets a pre-release version. Otherwise, it's a mainline branch.
-
-## Example PRs
-
-This repository has example PRs demonstrating different branch types:
-
-- **PR #1**: `main` → `release/main` (mainline, version `1.0.0`)
-- **PR #2**: `feature/test-feature` → `release/feature/test-feature` (pre-release)
-- **PR #3**: `v1` → `release/v1` (mainline, version `1.0.0`)
-- **PR #4**: `bugfix/test-fix` → `release/bugfix/test-fix` (pre-release)
+- **package-a**: Base package
+- **package-b**: Depends on package-a (demonstrates workspace dependencies)
 
 ## Workflow Configuration
 
