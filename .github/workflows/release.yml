@@ -2,11 +2,8 @@ name: Create Release PR
 
 on:
   push:
-    branches:
-      - main
-      - 'v*'
-      - 'feature/**'
-      - 'bugfix/**'
+    branches-ignore:
+      - 'release/**'
 
 jobs:
   create-release:
