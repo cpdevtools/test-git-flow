@@ -48,6 +48,7 @@ async function test() {
         prNumber: 1,
         sha: 'test-abc1234',
         runNumber: 1,
+        skipUpload: process.env.SKIP_UPLOAD === 'true',
       },
       mockPRBody
     );
