@@ -1,0 +1,14 @@
+{
+  "name": "@cpdevtools/test-package-a",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "echo 'Building package-a...' && mkdir -p dist && echo 'export const name = \"package-a\";' > dist/index.js",
+    "github.actions.build": "npm run build",
+    "github.actions.pack": "node scripts/pack.js"
+  },
+  "author": "CPDevTools",
+  "license": "MIT"
+}
