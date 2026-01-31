@@ -8,3 +8,5 @@ export const name = 'package-a';
 // Testing fixed published flag insertion
 // Test with finalize release fix
 // Test untagged-* duplicate fix
+// Test prerelease=false fix
+// Confirm releases are finalized
