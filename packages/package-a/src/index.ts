@@ -5,3 +5,4 @@ export const name = 'package-a';
 // rc90 Sat 31 Jan 2026 03:06:50 PM UTC
 // rc91 Sat 31 Jan 2026 03:08:48 PM UTC
 // Testing publish tracking with release body metadata
+// Testing fixed published flag insertion
