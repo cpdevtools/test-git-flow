@@ -132,4 +132,3 @@ See [git-flow CLI documentation](https://github.com/cpdevtools/git-flow/blob/mai
 # RC 81 test
 # RC 82 test
 # RC 84 test
-# RC 85 test
