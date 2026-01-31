@@ -133,3 +133,4 @@ See [git-flow CLI documentation](https://github.com/cpdevtools/git-flow/blob/mai
 # RC 82 test
 # RC 84 test
 # RC 86 test
+# Test GitHub Packages auth fix
