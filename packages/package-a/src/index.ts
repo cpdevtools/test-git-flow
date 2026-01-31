@@ -10,3 +10,4 @@ export const name = 'package-a';
 // Test untagged-* duplicate fix
 // Test prerelease=false fix
 // Confirm releases are finalized
+// Test prerelease flag from PR metadata
