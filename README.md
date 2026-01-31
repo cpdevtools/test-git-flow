@@ -130,3 +130,4 @@ See [git-flow CLI documentation](https://github.com/cpdevtools/git-flow/blob/mai
 - [cpdevtools/ts-dev-utilities](https://github.com/cpdevtools/ts-dev-utilities) - Utilities library
 
 # RC 81 test
+# RC 82 test
