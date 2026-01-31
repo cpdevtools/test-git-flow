@@ -9,3 +9,4 @@ export const name = 'package-a';
 // Test with finalize release fix
 // Test untagged-* duplicate fix
 // Test prerelease=false fix
+// Confirm releases are finalized
