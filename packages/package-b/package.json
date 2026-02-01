@@ -6,7 +6,7 @@
   "scripts": {
     "build": "echo 'Building package-b...' && mkdir -p dist && echo 'export const name = \"package-b\";' > dist/index.js",
     "github.actions.build": "pnpm run build",
-    "github.actions.pack": "cpdt-gitflow pack"
+    "github.actions.pack": "node scripts/generate-artifact.js"
   },
   "dependencies": {
     "@cpdevtools/test-package-a": "workspace:*"
