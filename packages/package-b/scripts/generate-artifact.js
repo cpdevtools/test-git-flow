@@ -22,7 +22,7 @@ async function generateArtifact() {
   const artifactOutputDir = process.env.ARTIFACT_OUTPUT_DIR || join(packageDir, '../..', '.artifacts');
   
   // Set environment variables for writeArtifact
-  const artifactFilename = packageJson.name.replace(/@/g, '').replace(///g, '-');
+  const artifactFilename = packageJson.name.replace(/@/g, '').replace(/\//g, '-');
   process.env.ARTIFACT_OUTPUT_DIR = artifactOutputDir;
   process.env.PROJECT_NAME = artifactFilename;
   
