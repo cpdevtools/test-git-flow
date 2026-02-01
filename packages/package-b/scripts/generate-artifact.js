@@ -42,7 +42,7 @@ async function generateArtifact() {
         type: 'npm',
         name: packageJson.name,
         path: `.artifacts/${tarballName}`,
-        registries: ['github-packages']
+        registries: ['github-npm']
       }
     ]
   });
