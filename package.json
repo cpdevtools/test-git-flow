@@ -14,7 +14,7 @@
   "author": "CPDevTools",
   "license": "MIT",
   "devDependencies": {
-    "@cpdevtools/git-flow": "link:../git-flow/packages/git-flow",
+    "@cpdevtools/git-flow": "^0.1.0-dev.1",
     "@cpdevtools/ts-dev-utilities": "^0.1.0",
     "typescript": "^5.7.3",
     "tsx": "^4.19.2"
