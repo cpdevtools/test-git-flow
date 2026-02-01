@@ -9,11 +9,11 @@ importers:
   .:
     devDependencies:
       '@cpdevtools/git-flow':
-        specifier: ^0.1.0-dev.1
-        version: 0.1.0-dev.1
+        specifier: ^0.1.0-dev.3
+        version: 0.1.0-dev.3
       '@cpdevtools/ts-dev-utilities':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.1.1-dev.0
+        version: 0.1.1-dev.0
       tsx:
         specifier: ^4.19.2
         version: 4.21.0
@@ -46,13 +46,13 @@ packages:
   '@actions/io@1.1.3':
     resolution: {integrity: sha512-wi9JjgKLYS7U/z8PPbco+PvTb/nRWjeoFlJ1Qer83k/3C5PHQi28hiVdeE2kHXmIL99mQFawx8qt/JPjZilJ8Q==}
 
-  '@cpdevtools/git-flow@0.1.0-dev.1':
-    resolution: {integrity: sha512-8s0Edta4dVFWcc8cq+zsGMtHPCYQTZm4j/daTbfVaYJ/p03rzv5tsAF1KteaWxZqA887MxJn4hX1rJ086AnFEQ==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow/0.1.0-dev.1/4b537e644b06effcb59d1bf2e2d7d2cb2a9f2a0d}
+  '@cpdevtools/git-flow@0.1.0-dev.3':
+    resolution: {integrity: sha512-6JhMLL8aVNulrwrg3PMdWkw3tsOt5w4NmeKMqCQxqHPXG9ixV/LMlgpYAvJu3+elceziE5/75QT0Ev+S4fVnGA==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow/0.1.0-dev.3/f05df40d3acef72aed77f7ec12d24dabc436f62f}
     engines: {node: '>=20'}
     hasBin: true
 
-  '@cpdevtools/ts-dev-utilities@0.1.0':
-    resolution: {integrity: sha512-drifjP7aK46nDYwfMqazu3vDXSJTDGbDJTV1gZ0L9rk+mMw40noe0JjgtgRDPZLYUiWE6hry3s/LZ3nxZ8zFFw==, tarball: https://npm.pkg.github.com/download/@cpdevtools/ts-dev-utilities/0.1.0/24e86db6f50a1e5df863940b1654dbbe51a4d183}
+  '@cpdevtools/ts-dev-utilities@0.1.1-dev.0':
+    resolution: {integrity: sha512-r0rKRkmDmSc4rEROtoehFAfQcdb66/KBc+XSBskIp7ZQwVxNWQ7cA9/6OghpF2lvtOuegut8NlzYksfI3qfxOw==, tarball: https://npm.pkg.github.com/download/@cpdevtools/ts-dev-utilities/0.1.1-dev.0/5481593f352ee8d30e1f7303d36f42a910182bc1}
     engines: {node: '>=20'}
 
   '@esbuild/aix-ppc64@0.27.2':
@@ -622,11 +622,11 @@ snapshots:
 
   '@actions/io@1.1.3': {}
 
-  '@cpdevtools/git-flow@0.1.0-dev.1':
+  '@cpdevtools/git-flow@0.1.0-dev.3':
     dependencies:
       '@actions/core': 1.11.1
       '@actions/github': 6.0.1
-      '@cpdevtools/ts-dev-utilities': 0.1.0
+      '@cpdevtools/ts-dev-utilities': 0.1.1-dev.0
       '@oclif/core': 4.8.0
       '@oclif/plugin-autocomplete': 3.2.40
       '@oclif/plugin-help': 6.2.37
@@ -637,7 +637,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@cpdevtools/ts-dev-utilities@0.1.0':
+  '@cpdevtools/ts-dev-utilities@0.1.1-dev.0':
     dependencies:
       change-case: 5.4.4
       globby: 14.1.0

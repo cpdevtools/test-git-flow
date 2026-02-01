@@ -7,7 +7,7 @@ on:
 
 jobs:
   create-release:
-    uses: cpdevtools/git-flow/.github/workflows/create-release-pr.yml@@cpdevtools/git-flow/v0.1.0-dev.1
+    uses: cpdevtools/git-flow/.github/workflows/create-release-pr.yml@main
     with:
       branch: ${{ github.ref_name }}
       versions-file: .github/versions.yml
