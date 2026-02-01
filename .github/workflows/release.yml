@@ -14,7 +14,7 @@ permissions:
 jobs:
   build-pack-publish:
     if: github.event.pull_request.merged == true
-    uses: cpdevtools/git-flow/.github/workflows/build-pack-publish.yml@main
+    uses: cpdevtools/git-flow/.github/workflows/build-pack-publish.yml@@cpdevtools/git-flow/v0.1.0-dev.1
     with:
       pr-number: ${{ github.event.pull_request.number }}
     secrets: inherit
