@@ -18,12 +18,13 @@ async function generateArtifact() {
   console.log(`Artifact output directory: ${process.env.ARTIFACT_OUTPUT_DIR || '.artifacts'}`);
   console.log(`Tarball name: ${tarballName}`);
   
-  // Set environment variables
-  const artifactFilename = packageJson.name.replace(/@/g, '').replace(/\//g, '-');
-  process.env.PROJECT_NAME = artifactFilename;
-  
   const packageDir = join(__dirname, '..');
   const artifactOutputDir = process.env.ARTIFACT_OUTPUT_DIR || join(packageDir, '../..', '.artifacts');
+  
+  // Set environment variables for writeArtifact
+  const artifactFilename = packageJson.name.replace(/@/g, '').replace(///g, '-');
+  process.env.ARTIFACT_OUTPUT_DIR = artifactOutputDir;
+  process.env.PROJECT_NAME = artifactFilename;
   
   // Run pnpm pack
   execSync(`pnpm pack`, { cwd: packageDir, stdio: 'inherit' });
