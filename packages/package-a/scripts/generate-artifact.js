@@ -1,12 +1,7 @@
-import { writeArtifact } from '@cpdevtools/ts-dev-utilities/artifacts';
-import { readFileSync, mkdirSync, copyFileSync } from 'fs';
-import { join } from 'path';
-import { execSync } from 'child_process';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const { writeArtifact } = require('@cpdevtools/ts-dev-utilities/artifacts');
+const { readFileSync, mkdirSync, copyFileSync } = require('fs');
+const { join } = require('path');
+const { execSync } = require('child_process');
 
 async function generateArtifact() {
   const packageJsonPath = join(__dirname, '..', 'package.json');
