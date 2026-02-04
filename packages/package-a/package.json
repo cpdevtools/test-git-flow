@@ -1,11 +1,11 @@
 {
   "name": "@cpdevtools/test-package-a",
-  "version": "0.0.0-DEFAULT",
+  "version": "0.0.0-MAIN",
   "main": "dist/index.js",
   "scripts": {
     "build": "echo 'Building package-a...' && mkdir -p dist && echo 'export const name = \"package-a\";' > dist/index.js",
     "github.actions.build": "pnpm run build",
-    "github.actions.pack": "node scripts/generate-artifact.js"
+    "github.actions.pack": "pnpm pack"
   },
   "author": "CPDevTools",
   "license": "MIT"
