@@ -1,4 +1,3 @@
-project: ${PACKAGE_NAME}
 artifacts:
   - type: npm
     name: ${PACKAGE_NAME}
