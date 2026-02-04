@@ -4,16 +4,19 @@
   "private": true,
   "description": "Test repository for git-flow workflow validation",
   "scripts": {
-    "build": "pnpm -r run build"
+    "build": "pnpm -r run build",
+    "syncpack.fix": "syncpack fix-mismatches",
+    "syncpack.format": "syncpack format",
+    "syncpack.list": "syncpack list-mismatches"
+  },
+  "devDependencies": {
+    "@cpdevtools/git-flow": "^0.1.0-dev.6",
+    "@cpdevtools/ts-dev-utilities": "^0.2.0",
+    "syncpack": "^13.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   },
   "keywords": [],
   "author": "CPDevTools",
-  "license": "MIT",
-  "devDependencies": {
-    "@cpdevtools/git-flow": "^0.1.0-dev.4",
-    "@cpdevtools/ts-dev-utilities": "^0.1.1-dev.1",
-    "typescript": "^5.7.3",
-    "tsx": "^4.19.2"
-  }
+  "license": "MIT"
 }
-
