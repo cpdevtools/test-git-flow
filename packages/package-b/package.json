@@ -4,7 +4,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "echo 'Building package-b...' && mkdir -p dist && echo 'export const name = \"package-b\";' > dist/index.js",
-    "github.actions.build": "pnpm run build"
+    "github.actions.build": "pnpm run build",
+    "github.actions.pack": "pnpm pack"
   },
   "dependencies": {
     "@cpdevtools/test-package-a": "workspace:*"
