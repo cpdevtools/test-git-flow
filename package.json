@@ -1,6 +1,6 @@
 {
   "name": "@cpdevtools/test-git-flow",
-  "version": "0.0.0-DEFAULT",
+  "version": "0.0.0-MAIN",
   "private": true,
   "description": "Test repository for git-flow workflow validation",
   "scripts": {
