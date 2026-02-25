@@ -41,8 +41,39 @@ Versions use `0.0.0-DEFAULT` placeholder, resolved from `.github/versions.yml`:
 
 ## Packages
 
-- **package-a**: Base package (published to GitHub Packages)
-- **package-b**: Depends on package-a (demonstrates workspace dependency rewriting)
+The packages are arranged to exercise every script-combination the test runner supports:
+
+| Package | `github.actions.build` | `github.actions.test` | Depends on |
+|---------|:---:|:---:|:---|
+| `package-a` | ✅ | — | — |
+| `package-b` | ✅ | ✅ | `package-a` |
+| `package-c` | — | ✅ | — |
+
+**Mode coverage matrix:**
+
+| Package | `build` mode | `test` mode | `test-optional` mode |
+|---------|:---:|:---:|:---:|
+| package-a | runs build | skipped (no test) | runs build |
+| package-b | runs build | runs test | runs build + test |
+| package-c | skipped (no build) | runs test | runs test |
+
+### Testing failure / dependency-skip behaviour
+
+To verify that dependents are skipped when a dependency fails:
+1. Temporarily break `package-a`'s build: `echo "exit 1" >> packages/package-a/package.json` *(just example)*
+2. Push the branch — `package-b` should be recorded as **skipped** (dependency failed)
+3. Revert the change
+
+## Phase 4: Test Runner
+
+Every push triggers [test.yml](.github/workflows/test.yml), which runs the test runner in `test-optional` mode:
+- Projects with only `github.actions.build` → build script runs
+- Projects with only `github.actions.test` → test script runs  
+- Projects with both → both scripts run sequentially
+- Change detection skips projects whose files haven't changed since the last pass tag
+- Branch deletion cleans up all `test-pass/{branch}/**` tags automatically
+
+To manually trigger a specific mode, use **Actions → Test → Run workflow** and choose `build`, `test`, or `test-optional`.
 
 ## Registry Configuration
 
@@ -58,6 +89,20 @@ registries:
 ```
 
 ## Workflows
+
+### [Test](.github/workflows/test.yml)
+```yaml
+on:
+  push:
+    branches-ignore: ['release/**']
+  workflow_dispatch:
+    inputs:
+      mode: { type: choice, options: [test-optional, build, test] }
+      rerun-all: { type: boolean }
+```
+
+### [Cleanup Test Tags](.github/workflows/test-cleanup.yml)
+Deletes all `test-pass/{branch}/**` tags when a branch is deleted.
 
 ### [Create Release PR](.github/workflows/create-release-pr.yml)
 ```yaml

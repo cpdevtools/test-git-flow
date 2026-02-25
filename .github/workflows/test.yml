@@ -1,0 +1,51 @@
+name: Test
+
+on:
+  push:
+    branches-ignore:
+      - 'release/**'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Test mode'
+        required: false
+        default: 'test-optional'
+        type: choice
+        options:
+          - test-optional
+          - build
+          - test
+      rerun-all:
+        description: 'Force re-run all projects (bypass change detection)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write  # Push test-pass tags
+  checks: write    # Write step summaries
+
+jobs:
+  test:
+    name: Test (${{ github.event.inputs.mode || 'test-optional' }})
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run Tests
+        uses: cpdevtools/git-flow/actions/test@main
+        with:
+          mode: ${{ github.event.inputs.mode || 'test-optional' }}
+          skip-unchanged: true
+          rerun-all: ${{ github.event.inputs.rerun-all || 'false' }}
+          token: ${{ secrets.GITHUB_TOKEN }}

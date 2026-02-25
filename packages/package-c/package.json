@@ -1,0 +1,11 @@
+{
+  "name": "@cpdevtools/test-package-c",
+  "version": "0.0.0-MAIN",
+  "description": "Test package with only a test script (no build). Exercises test and test-optional modes.",
+  "scripts": {
+    "test": "node -e \"const pkg=require('./package.json'); console.log('\\u2713 ' + pkg.name + ': name present'); if(!pkg.version) throw new Error('version missing'); console.log('\\u2713 version: ' + pkg.version); console.log('\\u2713 package-c tests passed');\"",
+    "github.actions.test": "pnpm run test"
+  },
+  "author": "CPDevTools",
+  "license": "MIT"
+}

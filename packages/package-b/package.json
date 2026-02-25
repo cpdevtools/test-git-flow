@@ -4,7 +4,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "echo 'Building package-b...' && mkdir -p dist && echo 'export const name = \"package-b\";' > dist/index.js",
+    "test": "node -e \"const pkg=require('./package.json'); if(!pkg.name) throw new Error('name missing'); if(!pkg.version) throw new Error('version missing'); console.log('\\u2713 package-b: name=' + pkg.name + ', version=' + pkg.version + ' (OK)');\"",
     "github.actions.build": "pnpm run build",
+    "github.actions.test": "pnpm run test",
     "github.actions.pack": "pnpm pack"
   },
   "dependencies": {
