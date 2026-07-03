@@ -66,43 +66,50 @@ To verify that dependents are skipped when a dependency fails:
 
 ## Phase 4: Test Runner
 
-Every push triggers [test.yml](.github/workflows/test.yml), which runs the test runner in `test-optional` mode:
+Every push triggers [test.yml](.github/workflows/test.yml), which runs the
+dependency-driven parallel script runner in `test-optional` mode:
+
 - Projects with only `github.actions.build` → build script runs
-- Projects with only `github.actions.test` → test script runs  
-- Projects with both → both scripts run sequentially
-- Change detection skips projects whose files haven't changed since the last pass tag
-- Branch deletion cleans up all `test-pass/{branch}/**` tags automatically
+- Projects with only `github.actions.test` → test script runs
+- Projects with both → both scripts run sequentially per project
+- Projects run as soon as all their workspace dependencies pass (not in fixed waves)
+- If a project fails, its dependents are automatically skipped
 
-To manually trigger a specific mode, use **Actions → Test → Run workflow** and choose `build`, `test`, or `test-optional`.
+There is **no change detection** — every push runs all applicable scripts.
 
-## Registry Configuration
+### Running locally
 
-See [.github/registries.yml](.github/registries.yml):
+```bash
+# Run the test suite exactly as CI does
+devutil run github.actions.test
 
-```yaml
-registries:
-  github-npm:
-    type: npm
-    url: https://npm.pkg.github.com
-    auth: GITHUB_TOKEN
-    scope: "@cpdevtools"
+# Run build + test together (test-optional equivalent)
+devutil run github.actions.build github.actions.test
+
+# Build only
+devutil run github.actions.build
+
+# Stop on first failure
+devutil run github.actions.test --fail-fast
+
+# Preview what would run
+devutil discover
+devutil graph
 ```
+
+### Testing failure / dependency-skip behaviour
+
+To verify that dependents are skipped when a dependency fails:
+1. Temporarily make `package-a`'s build fail (e.g. add `exit 1` to the build script)
+2. Run `devutil run github.actions.build --fail-fast`
+3. `package-b` should appear as **skipped** (dependency failed)
+4. Revert the change
 
 ## Workflows
 
 ### [Test](.github/workflows/test.yml)
-```yaml
-on:
-  push:
-    branches-ignore: ['release/**']
-  workflow_dispatch:
-    inputs:
-      mode: { type: choice, options: [test-optional, build, test] }
-      rerun-all: { type: boolean }
-```
-
-### [Cleanup Test Tags](.github/workflows/test-cleanup.yml)
-Deletes all `test-pass/{branch}/**` tags when a branch is deleted.
+Runs on every push (except `release/**`). Inputs: `mode` (build/test/test-optional),
+`fail-fast` (boolean), `concurrency` (number).
 
 ### [Create Release PR](.github/workflows/create-release-pr.yml)
 ```yaml
