@@ -41,23 +41,75 @@ Versions use `0.0.0-DEFAULT` placeholder, resolved from `.github/versions.yml`:
 
 ## Packages
 
-- **package-a**: Base package (published to GitHub Packages)
-- **package-b**: Depends on package-a (demonstrates workspace dependency rewriting)
+The packages are arranged to exercise every script-combination the test runner supports:
 
-## Registry Configuration
+| Package | `github.actions.build` | `github.actions.test` | Depends on |
+|---------|:---:|:---:|:---|
+| `package-a` | ✅ | — | — |
+| `package-b` | ✅ | ✅ | `package-a` |
+| `package-c` | — | ✅ | — |
 
-See [.github/registries.yml](.github/registries.yml):
+**Mode coverage matrix:**
 
-```yaml
-registries:
-  github-npm:
-    type: npm
-    url: https://npm.pkg.github.com
-    auth: GITHUB_TOKEN
-    scope: "@cpdevtools"
+| Package | `build` mode | `test` mode | `test-optional` mode |
+|---------|:---:|:---:|:---:|
+| package-a | runs build | skipped (no test) | runs build |
+| package-b | runs build | runs test | runs build + test |
+| package-c | skipped (no build) | runs test | runs test |
+
+### Testing failure / dependency-skip behaviour
+
+To verify that dependents are skipped when a dependency fails:
+1. Temporarily break `package-a`'s build: `echo "exit 1" >> packages/package-a/package.json` *(just example)*
+2. Push the branch — `package-b` should be recorded as **skipped** (dependency failed)
+3. Revert the change
+
+## Phase 4: Test Runner
+
+Every push triggers [test.yml](.github/workflows/test.yml), which runs the
+dependency-driven parallel script runner in `test-optional` mode:
+
+- Projects with only `github.actions.build` → build script runs
+- Projects with only `github.actions.test` → test script runs
+- Projects with both → both scripts run sequentially per project
+- Projects run as soon as all their workspace dependencies pass (not in fixed waves)
+- If a project fails, its dependents are automatically skipped
+
+There is **no change detection** — every push runs all applicable scripts.
+
+### Running locally
+
+```bash
+# Run the test suite exactly as CI does
+devutil run github.actions.test
+
+# Run build + test together (test-optional equivalent)
+devutil run github.actions.build github.actions.test
+
+# Build only
+devutil run github.actions.build
+
+# Stop on first failure
+devutil run github.actions.test --fail-fast
+
+# Preview what would run
+devutil discover
+devutil graph
 ```
 
+### Testing failure / dependency-skip behaviour
+
+To verify that dependents are skipped when a dependency fails:
+1. Temporarily make `package-a`'s build fail (e.g. add `exit 1` to the build script)
+2. Run `devutil run github.actions.build --fail-fast`
+3. `package-b` should appear as **skipped** (dependency failed)
+4. Revert the change
+
 ## Workflows
+
+### [Test](.github/workflows/test.yml)
+Runs on every push (except `release/**`). Inputs: `mode` (build/test/test-optional),
+`fail-fast` (boolean), `concurrency` (number).
 
 ### [Create Release PR](.github/workflows/create-release-pr.yml)
 ```yaml

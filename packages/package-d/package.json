@@ -1,0 +1,12 @@
+{
+  "name": "@cpdevtools/test-package-d",
+  "version": "0.0.0-MAIN",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "echo 'Building package-d...' && mkdir -p dist && echo 'export const name = \"package-d\";' > dist/index.js",
+    "github.actions.build": "pnpm run build",
+    "github.actions.pack": "pnpm pack"
+  },
+  "author": "CPDevTools",
+  "license": "MIT"
+}

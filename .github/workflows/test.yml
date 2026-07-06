@@ -1,0 +1,45 @@
+name: Test
+
+on:
+  push:
+    branches-ignore:
+      - 'release/**'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Test mode'
+        required: false
+        default: 'test-optional'
+        type: choice
+        options:
+          - test-optional
+          - build
+          - test
+
+permissions:
+  contents: write  # Push test-pass tags
+  checks: write    # Write step summaries
+  packages: read   # Install from GitHub Package Registry
+
+jobs:
+  test:
+    name: Test (${{ github.event.inputs.mode || 'test-optional' }})
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run Tests
+        uses: cpdevtools/git-flow/actions/test@main
+        with:
+          mode: ${{ github.event.inputs.mode || 'test-optional' }}
+          token: ${{ secrets.GITHUB_TOKEN }}

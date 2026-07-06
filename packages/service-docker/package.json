@@ -1,0 +1,13 @@
+{
+  "name": "@cpdevtools/test-service-docker",
+  "version": "0.0.0-MAIN",
+  "description": "Test package: Docker image build + pack-deploy. Exercises the full build → pack → pack-deploy pipeline.",
+  "scripts": {
+    "build": "docker build -t test-service:latest .",
+    "github.actions.build": "docker build -t test-service:${PROJECT_VERSION:-dev} -t test-service:latest .",
+    "github.actions.pack": "mkdir -p \"$ARTIFACT_OUTPUT_DIR\" && docker save test-service:latest | gzip > \"$ARTIFACT_OUTPUT_DIR/test-service-image.tar.gz\" && echo \"Saved image to $ARTIFACT_OUTPUT_DIR/test-service-image.tar.gz\"",
+    "github.actions.pack-deploy": "bash scripts/pack-deploy.sh"
+  },
+  "author": "CPDevTools",
+  "license": "MIT"
+}

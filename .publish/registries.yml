@@ -1,0 +1,17 @@
+# Registry Configuration for test-git-flow
+# Example project demonstrating GitHub-based package publishing
+
+registries:
+  # GitHub Packages (NPM)
+  github-npm:
+    type: npm
+    url: https://npm.pkg.github.com
+    auth: GITHUB_TOKEN
+    scope: "@cpdevtools"
+
+  # GitHub Container Registry (Docker)
+  ghcr:
+    type: docker
+    registry: ghcr.io
+    namespace: cpdevtools
+    auth: GITHUB_TOKEN
