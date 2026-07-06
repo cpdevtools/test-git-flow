@@ -15,11 +15,6 @@ on:
           - test-optional
           - build
           - test
-      rerun-all:
-        description: 'Force re-run all projects (bypass change detection)'
-        required: false
-        default: false
-        type: boolean
 
 permissions:
   contents: write  # Push test-pass tags
@@ -46,6 +41,4 @@ jobs:
         uses: cpdevtools/git-flow/actions/test@main
         with:
           mode: ${{ github.event.inputs.mode || 'test-optional' }}
-          skip-unchanged: true
-          rerun-all: ${{ github.event.inputs.rerun-all || 'false' }}
           token: ${{ secrets.GITHUB_TOKEN }}
