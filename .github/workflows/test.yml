@@ -19,6 +19,7 @@ on:
 permissions:
   contents: write  # Push test-pass tags
   checks: write    # Write step summaries
+  packages: read   # Install from GitHub Package Registry
 
 jobs:
   test:
