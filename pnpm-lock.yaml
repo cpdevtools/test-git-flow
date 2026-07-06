@@ -32,6 +32,27 @@ importers:
         specifier: workspace:*
         version: link:../package-a
 
+  packages/package-c: {}
+
+  packages/package-d: {}
+
+  packages/package-e:
+    dependencies:
+      '@cpdevtools/test-package-d':
+        specifier: workspace:*
+        version: link:../package-d
+
+  packages/package-f:
+    dependencies:
+      '@cpdevtools/test-package-b':
+        specifier: workspace:*
+        version: link:../package-b
+      '@cpdevtools/test-package-e':
+        specifier: workspace:*
+        version: link:../package-e
+
+  packages/service-docker: {}
+
 packages:
 
   '@actions/core@1.11.1':

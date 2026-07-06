@@ -1,0 +1,6 @@
+services:
+  test-service:
+    image: ghcr.io/${GITHUB_REPOSITORY:-cpdevtools/test-git-flow}/test-service:${SERVICE_VERSION:-latest}
+    restart: unless-stopped
+    environment:
+      - SERVICE_VERSION=${SERVICE_VERSION:-latest}

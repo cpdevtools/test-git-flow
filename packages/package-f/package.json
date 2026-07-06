@@ -1,0 +1,18 @@
+{
+  "name": "@cpdevtools/test-package-f",
+  "version": "0.0.0-MAIN",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "echo 'Building package-f...' && mkdir -p dist && echo 'export const name = \"package-f\";' > dist/index.js",
+    "test": "node -e \"const pkg=require('./package.json'); if(!pkg.name) throw new Error('name missing'); if(!pkg.version) throw new Error('version missing'); console.log('\\u2713 package-f: name=' + pkg.name + ', version=' + pkg.version + ' (OK)');\"",
+    "github.actions.build": "pnpm run build",
+    "github.actions.test": "pnpm run test",
+    "github.actions.pack": "pnpm pack"
+  },
+  "dependencies": {
+    "@cpdevtools/test-package-b": "workspace:*",
+    "@cpdevtools/test-package-e": "workspace:*"
+  },
+  "author": "CPDevTools",
+  "license": "MIT"
+}
