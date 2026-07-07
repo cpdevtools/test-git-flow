@@ -1,5 +1,3 @@
 artifacts:
-  - type: release-attachment
-    name: test-service-image
-    path: ${ARTIFACT_OUTPUT_DIR}/test-service-image.tar.gz
-    contentType: application/gzip
+  - type: deploy
+    name: test-service-docker
