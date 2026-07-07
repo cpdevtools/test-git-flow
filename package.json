@@ -11,8 +11,8 @@
     "syncpack.list": "syncpack list-mismatches"
   },
   "devDependencies": {
-    "@cpdevtools/git-flow": "^0.4.0-dev.5",
-    "@cpdevtools/git-flow-cli": "^0.4.0-dev.5",
+    "@cpdevtools/git-flow": "0.4.0-dev.5.build.280",
+    "@cpdevtools/git-flow-cli": "0.4.0-dev.5.build.280",
     "@cpdevtools/ts-dev-utilities": "^0.4.0-dev.6",
     "syncpack": "^13.0.0",
     "tsx": "^4.19.2",
