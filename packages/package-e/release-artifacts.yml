@@ -1,6 +1,5 @@
 artifacts:
   - type: npm
     name: ${PACKAGE_NAME}
-    path: ${TARBALL_PATH}
     registries:
       - github-npm

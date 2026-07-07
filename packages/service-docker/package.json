@@ -6,7 +6,7 @@
   "scripts": {
     "build": "docker build -t test-service:latest .",
     "github.actions.build": "docker build -t test-service:${PROJECT_VERSION:-dev} -t test-service:latest .",
-    "github.actions.pack": "tsx scripts/docker-pack.ts",
+    "github.actions.pack": "gitflow pack",
     "github.actions.pack-deploy": "bash scripts/pack-deploy.sh"
   },
   "author": "CPDevTools",

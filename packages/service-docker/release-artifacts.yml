@@ -1,3 +1,8 @@
 artifacts:
+  - type: docker
+    name: ghcr.io/cpdevtools/test-service
+    localTag: test-service:latest
+    registries:
+      - ghcr
   - type: deploy
     name: test-service-docker
