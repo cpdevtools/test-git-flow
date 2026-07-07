@@ -9,11 +9,11 @@ importers:
   .:
     devDependencies:
       '@cpdevtools/git-flow':
-        specifier: ^0.4.0-dev.3
-        version: 0.4.0-dev.3
+        specifier: ^0.4.0-dev.4
+        version: 0.4.0-dev.4
       '@cpdevtools/git-flow-cli':
-        specifier: ^0.4.0-dev.3
-        version: 0.4.0-dev.3
+        specifier: ^0.4.0-dev.4
+        version: 0.4.0-dev.4
       '@cpdevtools/ts-dev-utilities':
         specifier: ^0.4.0-dev.3
         version: 0.4.0-dev.3
@@ -81,13 +81,13 @@ packages:
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
     engines: {node: '>=6.9.0'}
 
-  '@cpdevtools/git-flow-cli@0.4.0-dev.3':
-    resolution: {integrity: sha512-El5Kuq51oK/7OUGGE4CG+xIbdNjzQDBbSCK18igkzOLWagYWu4H2IAaz3C3xcYwg721jJFPfDRJZwrlk8LqVQQ==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow-cli/0.4.0-dev.3/4a73673382347410de1a04e1dc961a83b64c6355}
+  '@cpdevtools/git-flow-cli@0.4.0-dev.4':
+    resolution: {integrity: sha512-lPkdqbCIjo+F9XLXZeIlVGVxmjdm4mlmQK4PVhkS3zqb8EGDGwJyAXoR7vO2HvR0qKSpoHpTEN6L9GRK+OpW5A==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow-cli/0.4.0-dev.4/7677935aa8a1851d9f4708e747a699f009cae6cb}
     engines: {node: '>=24'}
     hasBin: true
 
-  '@cpdevtools/git-flow@0.4.0-dev.3':
-    resolution: {integrity: sha512-6YnfOUS5rQPJvmRlCTKHceuJzzQOfFtjR4fMKVQMljn4JIat2zZVPqaie6ZAtM5OURhskcJvbxcEEAQEepxwHg==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow/0.4.0-dev.3/41c28afda4145fe73d161154fa01f90ecb15963d}
+  '@cpdevtools/git-flow@0.4.0-dev.4':
+    resolution: {integrity: sha512-6ZyvofrC+QtIThZEnxD5CPQn+5/K8GbUP0gzNVxAbpp06wVYHsP5gke30/nW99qcwCGlbVeldA8qt4RGvgSwJA==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow/0.4.0-dev.4/9b02331c545e588cd670b0804347db227669a54b}
     engines: {node: '>=24'}
 
   '@cpdevtools/ts-dev-utilities@0.4.0-dev.3':
@@ -870,9 +870,9 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.28.5': {}
 
-  '@cpdevtools/git-flow-cli@0.4.0-dev.3':
+  '@cpdevtools/git-flow-cli@0.4.0-dev.4':
     dependencies:
-      '@cpdevtools/git-flow': 0.4.0-dev.3
+      '@cpdevtools/git-flow': 0.4.0-dev.4
       '@oclif/core': 4.8.0
       '@oclif/plugin-autocomplete': 3.2.40
       '@oclif/plugin-help': 6.2.37
@@ -881,7 +881,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@cpdevtools/git-flow@0.4.0-dev.3':
+  '@cpdevtools/git-flow@0.4.0-dev.4':
     dependencies:
       '@actions/core': 1.11.1
       '@actions/github': 6.0.1
