@@ -1,6 +1,7 @@
 {
   "name": "@cpdevtools/test-service-docker",
   "version": "0.0.0-MAIN",
+  "packageManager": "pnpm@11.5.0",
   "description": "Test package: Docker image build + pack-deploy. Exercises the full build → pack → pack-deploy pipeline.",
   "scripts": {
     "build": "docker build -t test-service:latest .",
