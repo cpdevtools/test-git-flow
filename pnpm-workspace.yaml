@@ -3,11 +3,4 @@ packages:
 allowBuilds:
   esbuild: false
 minimumReleaseAgeExclude:
-  - '@cpdevtools/git-flow-cli@0.4.0-dev.3'
-  - '@cpdevtools/git-flow@0.4.0-dev.3'
-  - '@cpdevtools/ts-dev-utilities@0.4.0-dev.3'
-  - '@cpdevtools/git-flow-cli@0.4.0-dev.4'
-  - '@cpdevtools/git-flow@0.4.0-dev.4'
-  - '@cpdevtools/git-flow-cli@0.4.0-dev.5'
-  - '@cpdevtools/git-flow@0.4.0-dev.5'
-  - '@cpdevtools/ts-dev-utilities@0.4.0-dev.6'
+  - '@cpdevtools/*'
