@@ -9,14 +9,14 @@ importers:
   .:
     devDependencies:
       '@cpdevtools/git-flow':
-        specifier: 0.4.0-dev.5.build.280
-        version: 0.4.0-dev.5.build.280
+        specifier: 1.0.0-rc.1
+        version: 1.0.0-rc.1
       '@cpdevtools/git-flow-cli':
-        specifier: 0.4.0-dev.5.build.280
-        version: 0.4.0-dev.5.build.280
+        specifier: 1.0.0-rc.1
+        version: 1.0.0-rc.1
       '@cpdevtools/ts-dev-utilities':
-        specifier: ^0.4.0-dev.6
-        version: 0.4.0-dev.6
+        specifier: ^1.0.0-rc.0
+        version: 1.0.0-rc.0
       syncpack:
         specifier: ^13.0.0
         version: 13.0.4(typescript@5.9.3)
@@ -81,17 +81,17 @@ packages:
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
     engines: {node: '>=6.9.0'}
 
-  '@cpdevtools/git-flow-cli@0.4.0-dev.5.build.280':
-    resolution: {integrity: sha512-EUjoo0gC7nLiKgZuI2J0+DmihcjXszfyJxPazUdg2VeyLIleB5U8FV6tdKvGzNR9td70kJpL6pT/rBzgB9HXHg==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow-cli/0.4.0-dev.5.build.280/d739758cca7136d86ca070894c0e423aefb8c5a9}
+  '@cpdevtools/git-flow-cli@1.0.0-rc.1':
+    resolution: {integrity: sha512-JRIIYdCOSxBWbJG/pNE7TcP1G6sLwaUNSxi8jlnTTdMj2d1Q1vs4EhoAuNjIBmpLl7iUnB5oXSGd2uJP9ost2Q==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow-cli/1.0.0-rc.1/27cde125bb86d2fbfe035eeb2b6fee40788a2cac}
     engines: {node: '>=24'}
     hasBin: true
 
-  '@cpdevtools/git-flow@0.4.0-dev.5.build.280':
-    resolution: {integrity: sha512-P25+6KbjHon9wK+EkOz9+Dhm2rDp4OazhyFws/XutzcU48Lzvbw1jxj69dBuEhRsiw2Ngf0CYFsewgn0hg4pOA==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow/0.4.0-dev.5.build.280/c556645e350cbb3a1e7e02b84eb6a814ac2b8c52}
+  '@cpdevtools/git-flow@1.0.0-rc.1':
+    resolution: {integrity: sha512-0mqVmcLwE4YU6uVg/JJYrmRSbZb4ZG/eq86gXLiAPEHilSsBitoSoeOuWnUDcmwlBHAmoWNKePKKQEmYbGRiCQ==, tarball: https://npm.pkg.github.com/download/@cpdevtools/git-flow/1.0.0-rc.1/69dff86c0a682868e8c9fe73d4da390c05dc2a7d}
     engines: {node: '>=24'}
 
-  '@cpdevtools/ts-dev-utilities@0.4.0-dev.6':
-    resolution: {integrity: sha512-NLvgKIcP5K0bpMZMi7IqddJi3McZkqD1tfrRdgLh6krYweuQZFnUI+GRZ27jjVtTHKWvNxlA1nCzYH+d2WNCAg==, tarball: https://npm.pkg.github.com/download/@cpdevtools/ts-dev-utilities/0.4.0-dev.6/3ff23d2029e56568b0af1167f98dacec86fd5044}
+  '@cpdevtools/ts-dev-utilities@1.0.0-rc.0':
+    resolution: {integrity: sha512-ywkm8LOQLJFeC7iyCFAXgPZvtRrW21F1kzn9dkfwg8LSYf2Q8j3anmsctTTe6i6oCtiRVSplfYIMDR7Fo8uMSg==, tarball: https://npm.pkg.github.com/download/@cpdevtools/ts-dev-utilities/1.0.0-rc.0/a8c8d686e9561310468af7522a143dd3e6c7dacb}
     engines: {node: '>=24'}
 
   '@esbuild/aix-ppc64@0.27.2':
@@ -333,6 +333,9 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
+  a-sync-waterfall@1.0.1:
+    resolution: {integrity: sha512-RYTOHHdWipFUliRFMCS4X2Yn2X8M87V/OpSqWzKKOGhzqyUxzyVmhHDH9sAvG+ZuQf/TAOFsLCpMw09I1ufUnA==}
+
   ansi-colors@4.1.3:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
     engines: {node: '>=6'}
@@ -359,6 +362,9 @@ packages:
 
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+
+  asap@2.0.6:
+    resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
 
   async@3.2.6:
     resolution: {integrity: sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA==}
@@ -413,6 +419,10 @@ packages:
   commander@13.1.0:
     resolution: {integrity: sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==}
     engines: {node: '>=18'}
+
+  commander@5.1.0:
+    resolution: {integrity: sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==}
+    engines: {node: '>= 6'}
 
   cosmiconfig@9.0.0:
     resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
@@ -643,6 +653,16 @@ packages:
     resolution: {integrity: sha512-f1NpFjNI9O4VbKMOlA5QoBq/vSQPORHcTZ2feJpFkTHJ9eQkdlmZEKSjcAhxTGInC7RlEyScT9ui67NaOsjFWA==}
     engines: {node: ^18.17.0 || >=20.5.0}
 
+  nunjucks@3.2.4:
+    resolution: {integrity: sha512-26XRV6BhkgK0VOxfbU5cQI+ICFUtMLixv1noZn1tGU38kQH5A5nmmbk/O45xdyBhD1esk47nKrY0mvQpZIhRjQ==}
+    engines: {node: '>= 6.9.0'}
+    hasBin: true
+    peerDependencies:
+      chokidar: ^3.3.0
+    peerDependenciesMeta:
+      chokidar:
+        optional: true
+
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
 
@@ -870,28 +890,34 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.28.5': {}
 
-  '@cpdevtools/git-flow-cli@0.4.0-dev.5.build.280':
+  '@cpdevtools/git-flow-cli@1.0.0-rc.1':
     dependencies:
-      '@cpdevtools/git-flow': 0.4.0-dev.5.build.280
+      '@cpdevtools/git-flow': 1.0.0-rc.1
       '@oclif/core': 4.8.0
       '@oclif/plugin-autocomplete': 3.2.40
       '@oclif/plugin-help': 6.2.37
-      yaml: 2.8.2
-      zx: 8.8.5
-    transitivePeerDependencies:
-      - supports-color
-
-  '@cpdevtools/git-flow@0.4.0-dev.5.build.280':
-    dependencies:
-      '@actions/core': 1.11.1
-      '@actions/github': 6.0.1
-      '@cpdevtools/ts-dev-utilities': 0.4.0-dev.6
-      fast-glob: 3.3.3
+      prompts: 2.4.2
       semver: 7.7.3
       yaml: 2.8.2
       zx: 8.8.5
+    transitivePeerDependencies:
+      - chokidar
+      - supports-color
 
-  '@cpdevtools/ts-dev-utilities@0.4.0-dev.6':
+  '@cpdevtools/git-flow@1.0.0-rc.1':
+    dependencies:
+      '@actions/core': 1.11.1
+      '@actions/github': 6.0.1
+      '@cpdevtools/ts-dev-utilities': 1.0.0-rc.0
+      fast-glob: 3.3.3
+      nunjucks: 3.2.4
+      semver: 7.7.3
+      yaml: 2.8.2
+      zx: 8.8.5
+    transitivePeerDependencies:
+      - chokidar
+
+  '@cpdevtools/ts-dev-utilities@1.0.0-rc.0':
     dependencies:
       change-case: 5.4.4
       globby: 14.1.0
@@ -1086,6 +1112,8 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
+  a-sync-waterfall@1.0.1: {}
+
   ansi-colors@4.1.3: {}
 
   ansi-escapes@4.3.2:
@@ -1103,6 +1131,8 @@ snapshots:
   ansis@3.17.0: {}
 
   argparse@2.0.1: {}
+
+  asap@2.0.6: {}
 
   async@3.2.6: {}
 
@@ -1145,6 +1175,8 @@ snapshots:
   color-name@1.1.4: {}
 
   commander@13.1.0: {}
+
+  commander@5.1.0: {}
 
   cosmiconfig@9.0.0(typescript@5.9.3):
     dependencies:
@@ -1363,6 +1395,12 @@ snapshots:
       proc-log: 5.0.0
       semver: 7.7.3
       validate-npm-package-name: 6.0.2
+
+  nunjucks@3.2.4:
+    dependencies:
+      a-sync-waterfall: 1.0.1
+      asap: 2.0.6
+      commander: 5.1.0
 
   once@1.4.0:
     dependencies:

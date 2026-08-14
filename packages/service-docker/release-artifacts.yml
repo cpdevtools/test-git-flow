@@ -1,5 +1,5 @@
 artifacts:
-  - type: docker
+  - type: docker-image
     registries:
       - ghcr
     deploy:
