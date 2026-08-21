@@ -1,0 +1,33 @@
+name: Deploy — production
+
+# Thin per-environment wrapper (Phase 5 — Phase B).
+#
+# Filename convention: deploy-<environment>.yml — one workflow per environment.
+# Dispatched by `gitflow deploy` (or manually) to deploy a released package to
+# the 'production' environment via the shared reusable deploy workflow. Secrets
+# and the deploy URL resolve from the 'production' GitHub Environment.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_id:
+        description: 'Numeric GitHub Release ID to deploy'
+        required: true
+        type: string
+      repo:
+        description: 'owner/repo that owns the release (defaults to this repo)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    uses: cpdevtools/git-flow/.github/workflows/deploy.yml@main
+    with:
+      repo: ${{ inputs.repo != '' && inputs.repo || github.repository }}
+      release_id: ${{ inputs.release_id }}
+      environment: production
