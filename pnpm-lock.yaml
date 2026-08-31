@@ -15,8 +15,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       '@cpdevtools/ts-dev-utilities':
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.1.1
+        version: 1.1.1
       syncpack:
         specifier: ^13.0.0
         version: 13.0.4(typescript@5.9.3)
@@ -92,6 +92,10 @@ packages:
 
   '@cpdevtools/ts-dev-utilities@1.0.1':
     resolution: {integrity: sha512-T41l6UHGW30jFZsL09UnJvQNmPyp7nM6TgicBgTi3PoIl3p8FetF42HltqP7RPkkKYyK/aRK+w6fhZyIpegYEw==, tarball: https://npm.pkg.github.com/download/@cpdevtools/ts-dev-utilities/1.0.1/b7dc21dfe3441c51437316089c4e6311d67adf27}
+    engines: {node: '>=24'}
+
+  '@cpdevtools/ts-dev-utilities@1.1.1':
+    resolution: {integrity: sha512-zewIlpgqufNzvjnsAPp7iiaOOdlznVGiG340k4IRFqgP0nNgYkc7R4fGdvVEvAQ9G2prrqA8bTPiXGo4xI0tkQ==, tarball: https://npm.pkg.github.com/download/@cpdevtools/ts-dev-utilities/1.1.1/037f3747a3b2b6621c6315d9b2f22f933304a4b5}
     engines: {node: '>=24'}
 
   '@esbuild/aix-ppc64@0.27.2':
@@ -966,6 +970,13 @@ snapshots:
       globby: 14.1.0
       jsonc-parser: 3.3.1
       yaml: 2.8.2
+
+  '@cpdevtools/ts-dev-utilities@1.1.1':
+    dependencies:
+      change-case: 5.4.4
+      globby: 14.1.0
+      jsonc-parser: 3.3.1
+      yaml: 2.9.0
 
   '@esbuild/aix-ppc64@0.27.2':
     optional: true
