@@ -1,6 +1,0 @@
-artifacts:
-  - type: docker-image
-    registries:
-      - ghcr
-    deploy:
-      - compose
