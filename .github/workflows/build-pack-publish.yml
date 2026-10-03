@@ -11,7 +11,7 @@ on:
 jobs:
   build-pack:
     if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: write
       pull-requests: read
@@ -24,7 +24,7 @@ jobs:
           ref: ${{ github.event.pull_request.merge_commit_sha || github.sha }}
       
       - name: Build and Pack
-        uses: cpdevtools/git-flow/actions/build-pack@main
+        uses: cpdevtools/git-flow/actions/build-pack@feat/build-pack-windows
         with:
           pr-number: ${{ github.event.pull_request.number || '0' }}
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -45,7 +45,7 @@ jobs:
           ref: ${{ github.event.pull_request.merge_commit_sha }}
       
       - name: Publish Release
-        uses: cpdevtools/git-flow/actions/publish-release@main
+        uses: cpdevtools/git-flow/actions/publish-release@feat/build-pack-windows
         with:
           pr-number: ${{ github.event.pull_request.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
