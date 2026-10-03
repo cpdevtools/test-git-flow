@@ -138,3 +138,4 @@ For other projects using the old CLI:
 ## 2026-10-03
 
 Windows runner validation for git-flow feat/build-pack-windows.
+Run 3: MSYS-safe quoting.
