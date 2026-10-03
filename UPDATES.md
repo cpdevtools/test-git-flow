@@ -134,3 +134,7 @@ For other projects using the old CLI:
 
 - [git-flow CLI Documentation](https://github.com/cpdevtools/git-flow/blob/main/packages/git-flow/CLI-TOOLS.md)
 - [CLI Modernization Summary](https://github.com/cpdevtools/git-flow/blob/main/packages/git-flow/CLI_MODERNIZATION.md)
+
+## 2026-10-03
+
+Windows runner validation for git-flow feat/build-pack-windows.
